@@ -169,48 +169,67 @@
                 <span class="tag">Programming</span>
                 <h3>JavaScript Basics</h3>
                 <p>Learn variables, functions, conditions, loops, and basic programming logic.</p>
-                <a class="btn" href="Register.aspx">Save Resource</a>
+                <button class="btn" onclick="saveResource('js')">Save Resource</button>
             </div>
 
             <div class="card">
                 <span class="tag">Web Development</span>
                 <h3>HTML & CSS Fundamentals</h3>
                 <p>Understand how to create simple web pages using structure and design.</p>
-                <a class="btn" href="Register.aspx">Save Resource</a>
+                <button class="btn" onclick="saveResource('js')">Save Resource</button>
             </div>
 
             <div class="card">
                 <span class="tag">Database</span>
                 <h3>Database Introduction</h3>
                 <p>Learn tables, records, primary keys, SQL basics, and database concepts.</p>
-                <a class="btn" href="Register.aspx">Save Resource</a>
+                <button class="btn" onclick="saveResource('js')">Save Resource</button>
             </div>
 
             <div class="card">
                 <span class="tag">Design</span>
                 <h3>UI/UX Design Principles</h3>
                 <p>Learn how to create simple, clear, and user-friendly interfaces.</p>
-                <a class="btn" href="Register.aspx">Save Resource</a>
+                <button class="btn" onclick="saveResource('js')">Save Resource</button>
             </div>
 
             <div class="card">
                 <span class="tag">Cybersecurity</span>
                 <h3>Cybersecurity Awareness</h3>
                 <p>Understand passwords, phishing, suspicious links, and safe online behavior.</p>
-                <a class="btn" href="Register.aspx">Save Resource</a>
+                <button class="btn" onclick="saveResource('js')">Save Resource</button>
             </div>
 
             <div class="card">
                 <span class="tag">Study Skills</span>
                 <h3>Study Planning Guide</h3>
                 <p>Learn how to organize study goals, tasks, deadlines, and progress.</p>
-                <a class="btn" href="Register.aspx">Save Resource</a>
+                <button class="btn" onclick="saveResource('js')">Save Resource</button>
             </div>
 
         </div>
     </div>
 
 </div>
+
+    <script>
+    function getSavedResources() {
+        const saved = localStorage.getItem("savedResources");
+        return saved ? JSON.parse(saved) : [];
+    }
+
+    function saveResource(id) {
+        let savedList = getSavedResources();
+
+        if (!savedList.includes(id)) {
+            savedList.push(id);
+        }
+
+        localStorage.setItem("savedResources", JSON.stringify(savedList));
+
+        alert("Resource saved successfully!");
+    }
+    </script>
 
 </body>
 </html>
